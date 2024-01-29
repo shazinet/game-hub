@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
-interface Game {
+export interface Game {
   id: number;
   name: string;
+  background_image: string;
 }
 
 interface FetchGamesResponse {
@@ -27,6 +28,7 @@ const useGames = () => {
       });
 
     return () => controller.abort();
+    // An array of dependencies and the effect hook. Without this, we constantly send a request to our backend.
   }, []);
 
   return { games, error };

@@ -6,18 +6,19 @@ import GameGrid from "./components/GameGrid";
 function App() {
   return (
     <Grid
-      templateAreas={{ base: `'nav main'`, lg: `'nav nav' 'aside main'` }}
+      templateAreas={{
+        base: `'nav' 'main'`,
+        lg: `'nav nav' 'aside main'`,
+      }}
       gap={3}
     >
-      <GridItem area={"nav"} bg="blue.500">
+      <GridItem area={"nav"}>
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"} bg="blue.500">
-          ASIDE
-        </GridItem>
+        <GridItem area={"aside"}>ASIDE</GridItem>
       </Show>
-      <GridItem area={"main"} bg="blue.500">
+      <GridItem area={"main"}>
         <GameGrid />
       </GridItem>
     </Grid>
